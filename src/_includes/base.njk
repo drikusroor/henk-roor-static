@@ -36,6 +36,13 @@
 <div id="content" role="main">
 {{ content | safe }}
 </div><!-- #content -->
+
+{% if sidebar == "photo" %}
+{% include "sidebar-photo.njk" %}
+{% else %}
+{% include "sidebar-default.njk" %}
+{% endif %}
+
 </div><!-- #container -->
 </div><!-- #main -->
 
