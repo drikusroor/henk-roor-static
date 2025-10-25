@@ -12,3 +12,9 @@ npm-debug.log*
 # Temporary files
 *.tmp
 *~
+
+# Node modules
+node_modules/
+# Eleventy
+_site/
+extract_content.js
