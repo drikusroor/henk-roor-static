@@ -8,6 +8,28 @@ Default to using Bun instead of Node.js.
 - Use `bun run <script>` instead of `npm run <script>` or `yarn run <script>` or `pnpm run <script>`
 - Bun automatically loads .env, so don't use dotenv.
 
+## Project Context
+
+This site is a static version of the original **henkroor.nl** WordPress site.
+
+**Important Guidelines:**
+- Always validate design and layout changes against the original site at https://www.henkroor.nl/
+- Maintain visual consistency with the original site
+- When making changes, always:
+  1. Build locally with `bun run build`
+  2. Test the output
+  3. Commit changes with descriptive messages
+  4. Push to deploy automatically
+  5. Update README.md if adding features or changing structure
+
+## Workflow
+
+After making any code changes:
+1. Run `bun run build` to verify
+2. Commit with clear commit messages
+3. Push to main branch (auto-deploys via GitHub Actions)
+4. Keep README.md up to date with any new features or structural changes
+
 ## APIs
 
 - `Bun.serve()` supports WebSockets, HTTPS, and routes. Don't use `express`.
