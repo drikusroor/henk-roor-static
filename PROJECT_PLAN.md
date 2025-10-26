@@ -80,6 +80,12 @@ Convert the WordPress-based henkroor.nl website to a static site using Eleventy 
 - [⚠️] Fix any layout discrepancies
 - [⚠️] Ensure proper spacing and alignment
 
+### 4.4 CSS Optimization ✅
+- [✅] **Implement CSS tree shaking with PurgeCSS**
+- [✅] **77% reduction in CSS file size (172KB → 40KB)**
+- [✅] **Configure safelist for dynamic classes**
+- [✅] **Custom extractor for edge cases**
+
 ---
 
 ## Phase 5: Functionality ❌ INCOMPLETE
