@@ -4,7 +4,7 @@
   "type": "module",
   "description": "Static version of henkroor.nl converted from WordPress",
   "scripts": {
-    "build": "eleventy && npm run optimize-css",
+    "build": "eleventy",
     "build:eleventy": "eleventy",
     "optimize-css": "postcss _site/wp-content/themes/wp-advocate-child/css/style.css -o _site/wp-content/themes/wp-advocate-child/css/style.css && postcss _site/wp-includes/css/dist/block-library/style.min.css -o _site/wp-includes/css/dist/block-library/style.min.css && postcss _site/wp-content/themes/wp-advocate-child/css/custom-layout.css -o _site/wp-content/themes/wp-advocate-child/css/custom-layout.css",
     "start": "eleventy --serve",
