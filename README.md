@@ -7,6 +7,7 @@ This is a static version of [henkroor.nl](https://www.henkroor.nl/), converted f
 ## 🏗️ Built With
 
 - **SSG:** [Eleventy (11ty)](https://www.11ty.dev/) v3.1.2
+- **CMS:** [Decap CMS](https://decapcms.org/) (formerly Netlify CMS)
 - **Runtime:** [Bun](https://bun.sh/) v1.3.0
 - **Hosting:** GitHub Pages
 - **Deployment:** GitHub Actions (automated)
@@ -82,6 +83,7 @@ Removes the `_site` directory.
 
 ## 🎨 Features
 
+- ✅ **Content Management System** with Decap CMS for easy editing
 - ✅ **Component-based architecture** with reusable header and footer
 - ✅ **Proper path handling** for GitHub Pages deployment
 - ✅ **Active navigation state** highlighting
@@ -141,7 +143,20 @@ These are copied to the output directory during build via `addPassthroughCopy`.
 
 ## 🛠️ Maintenance
 
-To update content:
+### Content Management with Decap CMS
+
+The site includes Decap CMS for easy content editing:
+
+1. **Access the CMS**: Visit `/admin/` on your deployed site
+2. **Authenticate**: Log in with GitHub OAuth
+3. **Edit content**: Use the visual editor to update pages
+4. **Publish**: Changes are committed directly to GitHub
+
+For detailed setup instructions, see [DECAP_CMS_SETUP.md](DECAP_CMS_SETUP.md)
+
+### Manual Content Updates
+
+To update content manually:
 1. Edit the `.njk` files in `src/`
 2. Run `bun run build` to verify changes locally
 3. Commit and push to `main` branch
@@ -171,8 +186,9 @@ When making changes to this site:
 - 🚀 **Faster load times** - No database queries, pure static HTML
 - 🔒 **Better security** - No server-side code execution
 - 💰 **Lower costs** - Free hosting on GitHub Pages
-- �� **Version control** - All changes tracked in Git
-- 🔄 **Easier maintenance** - Component-based architecture
+- 📝 **Modern CMS** - Decap CMS for user-friendly content management
+- 🔄 **Version control** - All changes tracked in Git
+- � **Easier maintenance** - Component-based architecture
 - ⚡ **Quick builds** - Eleventy + Bun for fast development
 
 ## 📅 Conversion Date
