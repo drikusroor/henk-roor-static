@@ -3,7 +3,7 @@ backend:
   repo: drikusroor/henk-roor-static # Replace with your actual repo name
 
 # Uncomment for local development
-local_backend: true
+# local_backend: true
 
 publish_mode: editorial_workflow
 media_folder: "src/wp-content/uploads"
