@@ -16,7 +16,7 @@
   }
 
   nav[role="navigation"] .menu #menu-main {
-    display: block !important;
+    display: flex;
   }
 
   nav[role="navigation"] .menu #menu-main li {

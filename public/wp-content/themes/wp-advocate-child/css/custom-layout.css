@@ -2,6 +2,11 @@
 
 /* Container should use flexbox for proper side-by-side layout */
 @media only screen and (min-width: 825px) {
+
+  header[role="banner"] {
+    margin-bottom: 4rem;
+  }
+
   #container {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -9,7 +14,7 @@
     align-items: flex-start;
     max-width: 1024px;
     margin: 0 auto;
-    padding: 2rem;
+    padding: 0 2rem;
   }
 
   #content {
