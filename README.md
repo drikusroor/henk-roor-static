@@ -1,12 +1,12 @@
 # Henk Roor Static Website
 
-This is a static version of [henkroor.nl](https://www.henkroor.nl/), converted from WordPress and built with Eleventy (11ty) SSG framework, deployed to GitHub Pages.
+This is a static version of [henkroor.nl](https://www.henkroor.nl/), converted from WordPress and built with **Astro** SSG framework, deployed to GitHub Pages.
 
 > **Note:** This site is based on the original henkroor.nl WordPress site. Always validate design and layout changes against the original site to maintain consistency.
 
 ## 🏗️ Built With
 
-- **SSG:** [Eleventy (11ty)](https://www.11ty.dev/) v3.1.2
+- **SSG:** [Astro](https://astro.build/) v5.15.5
 - **CMS:** [Decap CMS](https://decapcms.org/) (formerly Netlify CMS)
 - **Runtime:** [Bun](https://bun.sh/) v1.3.0
 - **Hosting:** GitHub Pages
@@ -16,24 +16,40 @@ This is a static version of [henkroor.nl](https://www.henkroor.nl/), converted f
 
 ```
 ├── src/                                      # Source files
-│   ├── _includes/                            # Eleventy templates & components
-│   │   ├── base.njk                         # Base layout template
-│   │   ├── header.njk                       # Reusable header component
-│   │   ├── footer.njk                       # Reusable footer component
-│   │   ├── sidebar-default.njk              # Default sidebar widget
-│   │   └── sidebar-photo.njk                # Alternative sidebar with photo
-│   ├── _data/                                # Global data files
-│   ├── wp-content/                           # WordPress static assets
+│   ├── layouts/                              # Astro layouts
+│   │   └── BaseLayout.astro                 # Base layout with header, footer, and sidebar
+│   ├── pages/                                # Astro pages (auto-routed)
+│   │   ├── index.astro                      # Homepage
+│   │   ├── over-ons.astro                   # About page
+│   │   ├── financiele-administratie.astro   # Financial services page
+│   │   ├── salarisadministratie.astro       # Payroll services page
+│   │   ├── startende-ondernemers.astro      # Starting entrepreneurs page
+│   │   └── netwerken.astro                  # Networks page
+│   └── content/                              # Content collections for Decap CMS
+│       ├── config.ts                        # Content collection schema
+│       └── pages/                           # Markdown content files
+│           ├── index.md
+│           ├── over-ons.md
+│           ├── financiele-administratie.md
+│           ├── salarisadministratie.md
+│           ├── startende-ondernemers.md
+│           └── netwerken.md
+├── public/                                   # Static assets (served as-is)
+│   ├── wp-content/                          # WordPress theme assets
 │   │   └── themes/wp-advocate-child/
 │   │       └── css/
-│   │           ├── style.css                # Main theme styles
-│   │           └── custom-layout.css        # Custom flexbox layout for sidebar
-│   ├── wp-includes/                          # WordPress core assets
-│   ├── *.njk                                 # Page templates
-│   └── robots.txt                           # SEO robots file
-├── _site/                                    # Generated static site (gitignored)
-├── eleventy.config.js                       # Eleventy configuration
-└── package.json                             # Project dependencies & scripts
+│   │           ├── style.css               # Main theme styles
+│   │           ├── custom-layout.css       # Custom flexbox layout
+│   │           └── mobile-menu.css         # Mobile menu styles
+│   ├── wp-includes/                         # WordPress core assets
+│   ├── admin/                               # Decap CMS admin interface
+│   │   ├── index.html                      # CMS interface
+│   │   └── config.yml                      # CMS configuration
+│   └── robots.txt                          # SEO robots file
+├── _site/                                   # Generated static site (gitignored)
+├── astro.config.mjs                        # Astro configuration
+├── postcss.config.js                       # PostCSS configuration
+└── package.json                            # Project dependencies & scripts
 ```
 
 ## 🚀 Development
@@ -52,9 +68,11 @@ bun install
 
 ```bash
 bun start
+# or
+bun dev
 ```
 
-This starts Eleventy's dev server with hot reload at `http://localhost:8080`
+This starts Astro's dev server with hot reload at `http://localhost:4321`
 
 ### Build for Production
 
@@ -62,7 +80,15 @@ This starts Eleventy's dev server with hot reload at `http://localhost:8080`
 bun run build
 ```
 
-Generates the static site in the `_site` directory.
+Generates the static site in the `_site` directory and optimizes CSS.
+
+### Preview Production Build
+
+```bash
+bun run preview
+```
+
+Previews the production build locally.
 
 ### Clean Build
 
@@ -84,62 +110,78 @@ Removes the `_site` directory.
 ## 🎨 Features
 
 - ✅ **Content Management System** with Decap CMS for easy editing
-- ✅ **Component-based architecture** with reusable header and footer
+- ✅ **Astro-powered** with component-based architecture
+- ✅ **Type-safe content collections** for structured content
 - ✅ **Proper path handling** for GitHub Pages deployment
 - ✅ **Active navigation state** highlighting
 - ✅ **Responsive design** from original WordPress theme
 - ✅ **Two-column layout** with sidebar (2/3 content, 1/3 sidebar on desktop)
 - ✅ **Mobile-responsive** stacking layout for small screens
-- ✅ **SEO-friendly** meta tags and structure
-- ✅ **Fast builds** with Eleventy and Bun
+- ✅ **SEO-friendly** meta tags and structure with automatic sitemap
+- ✅ **Lightning-fast builds** with Astro and Bun
 - ✅ **Automated deployment** via GitHub Actions
 
 ## 🌐 Deployment
 
 The site is automatically deployed to GitHub Pages when changes are pushed to the `main` branch.
 
-**Live URL:** https://drikusroor.github.io/henk-roor-static/
+**Live URL:** <https://drikusroor.github.io/henk-roor-static/>
 
 ### GitHub Actions Workflow
 
 The deployment workflow:
+
 1. Checks out the repository
 2. Sets up Bun
 3. Installs dependencies
-4. Builds the site with Eleventy
-5. Deploys to GitHub Pages
+4. Builds the site with Astro
+5. Optimizes CSS with PostCSS
+6. Deploys to GitHub Pages
 
 ## 📝 Original Site
 
-The original WordPress site was located at https://www.henkroor.nl/
+The original WordPress site was located at <https://www.henkroor.nl/>
 
 ## 🔧 Configuration
 
 ### Path Prefix
 
-The site is configured with a path prefix for GitHub Pages in `eleventy.config.js`:
+The site is configured with a base path for GitHub Pages in `astro.config.mjs`:
 
 ```javascript
-pathPrefix: "/henk-roor-static/"
+export default defineConfig({
+  site: 'https://drikusroor.github.io',
+  base: '/henk-roor-static',
+  // ...
+});
 ```
 
 This ensures all links work correctly when deployed to GitHub Pages.
 
-### Template Engine
+### Content Collections
 
-Uses Nunjucks (`.njk`) for templating, which provides:
-- Template inheritance with `layout`
-- Reusable components with `include`
-- URL filters for proper path handling
-- Conditional rendering
+Astro's content collections provide type-safe content management:
+
+```typescript
+const pagesCollection = defineCollection({
+  type: 'content',
+  schema: z.object({
+    title: z.string(),
+    description: z.string().optional(),
+    sidebar: z.enum(['default', 'photo']).optional().default('default'),
+  }),
+});
+```
 
 ## 📦 Assets
 
-All WordPress assets (CSS, JavaScript, images, fonts) are preserved in:
-- `src/wp-content/` - Theme and plugin assets
-- `src/wp-includes/` - WordPress core assets
+All WordPress assets (CSS, JavaScript, images, fonts) are preserved in the `public/` directory:
 
-These are copied to the output directory during build via `addPassthroughCopy`.
+- `public/wp-content/` - Theme and plugin assets
+- `public/wp-includes/` - WordPress core assets
+- `public/admin/` - Decap CMS admin interface
+
+These are served as-is from the public directory.
 
 ## 🛠️ Maintenance
 
@@ -157,17 +199,21 @@ For detailed setup instructions, see [DECAP_CMS_SETUP.md](DECAP_CMS_SETUP.md)
 ### Manual Content Updates
 
 To update content manually:
-1. Edit the `.njk` files in `src/`
+
+1. Edit the markdown files in `src/content/pages/`
 2. Run `bun run build` to verify changes locally
 3. Commit and push to `main` branch
 4. GitHub Actions will automatically rebuild and deploy
 
-To update shared components (header, footer, sidebar):
-1. Edit files in `src/_includes/`
-2. All pages using these components will be updated on next build
+To update page structure or layouts:
+
+1. Edit Astro components in `src/pages/` or `src/layouts/`
+2. Astro's component syntax is similar to JSX with frontmatter
+3. All pages using the base layout will be updated on next build
 
 To update styles:
-1. Edit CSS files in `src/wp-content/themes/wp-advocate-child/css/`
+
+1. Edit CSS files in `public/wp-content/themes/wp-advocate-child/css/`
 2. `custom-layout.css` contains custom flexbox layout overrides
 3. Always test against the original henkroor.nl site for consistency
 

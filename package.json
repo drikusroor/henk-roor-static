@@ -2,18 +2,21 @@
   "name": "henk-roor-static",
   "version": "1.0.0",
   "type": "module",
-  "description": "Static version of henkroor.nl converted from WordPress",
+  "description": "Static version of henkroor.nl converted from WordPress - Now using Astro",
   "scripts": {
-    "build": "eleventy",
-    "build:eleventy": "eleventy",
+    "build": "astro build && bun run optimize-css",
+    "build:astro": "astro build",
     "optimize-css": "postcss _site/wp-content/themes/wp-advocate-child/css/style.css -o _site/wp-content/themes/wp-advocate-child/css/style.css && postcss _site/wp-includes/css/dist/block-library/style.min.css -o _site/wp-includes/css/dist/block-library/style.min.css && postcss _site/wp-content/themes/wp-advocate-child/css/custom-layout.css -o _site/wp-content/themes/wp-advocate-child/css/custom-layout.css",
-    "start": "eleventy --serve",
+    "start": "astro dev",
+    "preview": "astro preview",
     "clean": "rm -rf _site",
-    "dev": "bun run clean && bun run build && bun run optimize-css && bun run start"
+    "dev": "bun run clean && bun run start"
   },
   "devDependencies": {
-    "@11ty/eleventy": "^3.1.2",
+    "@astrojs/mdx": "^4.3.10",
+    "@astrojs/sitemap": "^3.6.0",
     "@fullhuman/postcss-purgecss": "^7.0.2",
+    "astro": "^5.15.5",
     "postcss": "^8.5.6",
     "postcss-cli": "^11.0.1"
   }
