@@ -9,16 +9,20 @@
     align-items: flex-start;
     max-width: 1024px;
     margin: 0 auto;
+    padding: 2rem;
   }
 
   #content {
     width: 100%;
     float: none;
+    padding: 0;
   }
 
   #sidebar {
     width: 100%;
     float: none;
+    position: sticky;
+    top: 2rem;
   }
 }
 
@@ -28,12 +32,20 @@
     display: block;
   }
 
+  #content {
+    width: 100%;
+  }
+
+  #sidebar {
+    width: auto !important;
+  }
+
   #content,
   #sidebar {
-    width: 100%;
     float: none;
     display: block;
     margin-left: 0;
     margin-right: 0;
+    padding: 0 2rem;
   }
 }
