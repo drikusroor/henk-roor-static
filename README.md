@@ -235,7 +235,7 @@ When making changes to this site:
 - 📝 **Modern CMS** - Decap CMS for user-friendly content management
 - 🔄 **Version control** - All changes tracked in Git
 - � **Easier maintenance** - Component-based architecture
-- ⚡ **Quick builds** - Eleventy + Bun for fast development
+- ⚡ **Quick builds** - Astro + Bun for fast development
 
 ## 📅 Conversion Date
 
