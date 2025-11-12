@@ -2,6 +2,7 @@ backend:
   name: github
   repo: drikusroor/henk-roor-static # Replace with your actual repo name
   branch: main
+  base_url: https://sveltia-cms-auth.drikusroor.workers.dev
 
 # Uncomment for local development
 # local_backend: true
