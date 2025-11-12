@@ -24,13 +24,9 @@ jobs:
       - name: Install dependencies
         run: bun install
 
-      - name: Build with Eleventy
+      - name: Build with Astro
         id: build
         run: bun run build
-
-      - name: Optimize CSS
-        id: css
-        run: bun run optimize-css
 
       - name: Check build output
         id: check
@@ -50,14 +46,12 @@ jobs:
         with:
           script: |
             const buildStatus = '${{ steps.build.outcome }}';
-            const cssStatus = '${{ steps.css.outcome }}';
             const checkStatus = '${{ steps.check.outputs.status }}';
 
             let comment = '## Build Verification Report\n\n';
             comment += `| Check | Status |\n`;
             comment += `|-------|--------|\n`;
-            comment += `| Eleventy Build | ${buildStatus === 'success' ? '✅ Passed' : '❌ Failed'} |\n`;
-            comment += `| CSS Optimization | ${cssStatus === 'success' ? '✅ Passed' : '❌ Failed'} |\n`;
+            comment += `| Astro Build | ${buildStatus === 'success' ? '✅ Passed' : '❌ Failed'} |\n`;
             comment += `| Build Output | ${checkStatus === 'success' ? '✅ Valid' : '❌ Invalid'} |\n`;
 
             github.rest.issues.createComment({
