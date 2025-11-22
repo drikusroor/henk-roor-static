@@ -1,6 +1,8 @@
 ---
-title: "Administratiekantoor Henk Roor | Voor de kleine ondernemer"
-description: "Administratiekantoor Henk Roor verzorgt administraties voor kleine ondernemers. Tegen redelijke tarieven, want een goede boekhouder verdient zichzelf terug!"
+title: Administratiekantoor Henk Roor | Voor de kleine ondernemers
+description: Administratiekantoor Henk Roor verzorgt administraties voor kleine
+  ondernemers. Tegen redelijke tarieven, want een goede boekhouder verdient
+  zichzelf terug!
 ---
 
 <article id="post-6" class="post-6 page type-page status-publish hentry">
